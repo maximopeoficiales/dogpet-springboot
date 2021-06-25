@@ -1,9 +1,9 @@
-package com.idat.examen.Config;
+package com.idat.examen.config;
 
 import java.util.ArrayList;
 
-import com.idat.examen.Interfaces.IUsuario;
-import com.idat.examen.Models.Usuario;
+import com.idat.examen.interfaces.IUsuario;
+import com.idat.examen.models.Client;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -25,7 +25,7 @@ public class UsuarioConfig implements UserDetailsService {
      @Transactional(readOnly = true)
      public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
           // busca usuarios
-          Usuario usuario = usuarioDao.findByUser(username);
+          Client usuario = usuarioDao.findByUser(username);
           if (usuario == null) {
                throw new UsernameNotFoundException(username);
           }

@@ -1,4 +1,4 @@
-package com.idat.examen.Config;
+package com.idat.examen.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;

@@ -1,11 +1,11 @@
-package com.idat.examen.Dao;
+package com.idat.examen.dao;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.idat.examen.Interfaces.IUsuario;
-import com.idat.examen.Models.Usuario;
-import com.idat.examen.Services.IUsuarioService;
+import com.idat.examen.interfaces.IUsuario;
+import com.idat.examen.models.Client;
+import com.idat.examen.services.IUsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,17 +17,17 @@ public class UsuariosImpl implements IUsuarioService {
      IUsuario dao;
 
      @Override
-     public List<Usuario> findAll() {
-          return (List<Usuario>) dao.findAll();
+     public List<Client> findAll() {
+          return (List<Client>) dao.findAll();
      }
 
      @Override
-     public Optional<Usuario> findByID(int id) {
+     public Optional<Client> findByID(int id) {
           return dao.findById(id);
      }
 
      @Override
-     public void save(Usuario c) {
+     public void save(Client c) {
           dao.save(c);
      }
 

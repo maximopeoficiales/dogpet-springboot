@@ -1,6 +1,4 @@
-package com.idat.examen.Models;
-
-import java.util.Date;
+package com.idat.examen.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,13 +12,11 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "depositos")
-public class Deposito {
-
+@Table(name = "users")
+public class Client {
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private int cod_dep;
-     private Date fecha;
-     private int monto;
-     private int cliente;
+     private int id;
+     private String user;
+     private String password;
 }
