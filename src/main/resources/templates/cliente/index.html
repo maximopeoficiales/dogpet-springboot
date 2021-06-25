@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="layouts/template :: head">
+
+	<body>
+	  <header th:replace="layouts/template :: header">
+	  </header>
+
+	  <div class="container mt-4 animate__animated  animate__backInLeft">
+		<h1 class="text-center my-4">Mantenimiento Cliente</h1>
+		<a th:href="@{/new_client}" class="btn btn-dark btn-sm my-2"><i class="fas fa-user fa-fw"></i> Nuevo Cliente</a>
+		
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<td class="">N-Cuenta</td>
+					<td>NOMBRE</td>
+					<td>APELLIDO</td>
+					<td>DNI</td>
+					<td>Acciones</td>
+				</tr>
+			</thead>
+		<tbody>
+			<tr th:each="cli:${clientes}">
+				<td th:text="${cli.n_cuenta}"></td>
+				<td th:text="${cli.nombre}"></td>
+				<td th:text="${cli.apellido}"></td>
+				<td th:text="${cli.dni}"></td>
+				<td>
+					<a th:href="@{/buscarRetiros?n_cuenta=}+${cli.n_cuenta}" class="btn btn-sm btn-secondary"><i class="fas fa-eye"></i></a>								
+					<a th:href="@{/client/}+${cli.n_cuenta}" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>								
+					<a th:href="@{/deleteclient/}+${cli.n_cuenta}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>				
+				</td>				
+			</tr>		
+		</tbody>
+		</table>
+	</div>
+	    <!-- <footer th:replace="layouts/template :: footer"></footer> -->
+	</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head th:replace="layouts/template :: head"></head>
+
+  <body>
+    <header th:replace="layouts/template :: header"></header>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-4 my-2">
+          <div class="card animate__animated animate__pulse">
+            <img
+              class="card-img-top"
+              style="height: 20rem"
+              src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
+              alt="Card image cap"
+            />
+            <div class="card-body text-center">
+              <a
+                th:href="@{/clients}"
+                class="animate__animated animate__bounce btn btn-lg btn-dark mx-2"
+                >Ver Clientes</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 my-2">
+          <div class="card animate__animated animate__pulse">
+            <img
+              class="card-img-top"
+              style="height: 20rem"
+              src="https://images.unsplash.com/photo-1568386453619-84c3ff4b43c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
+              alt="Card image cap"
+            />
+            <div class="card-body text-center">
+              <p class="card-text">
+                <a
+                  th:href="@{/buscarRetiros}"
+                  class="animate__animated animate__bounce btn btn-lg btn-dark mx-2"
+                  >Buscar Retiros</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 my-2">
+          <div class="card animate__animated animate__pulse">
+            <img
+              class="card-img-top"
+              style="height: 20rem"
+              src="https://images.unsplash.com/photo-1568386453619-84c3ff4b43c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
+              alt="Card image cap"
+            />
+            <div class="card-body text-center">
+              <p class="card-text">
+                <a
+                  th:href="@{/crearRetiro}"
+                  class="animate__animated animate__bounce btn btn-lg btn-dark mx-2"
+                  >Crear Retiro</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 my-2">
+          <div class="card animate__animated animate__pulse">
+            <img
+              class="card-img-top"
+              style="height: 20rem"
+              src="https://miro.medium.com/max/900/1*1YZRmdvIa22har7Ca7KRbQ.jpeg"
+              alt="Card image cap"
+            />
+            <div class="card-body text-center">
+              <p class="card-text">
+                <a
+                  th:href="@{/users}"
+                  class="animate__animated animate__bounce btn btn-lg btn-dark mx-2"
+                  >Ver Usuarios</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer th:replace="layouts/template :: footer"></footer>
+  </body>
+</html>

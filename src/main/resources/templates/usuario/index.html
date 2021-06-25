@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<head th:replace="layouts/template :: head">
+
+	<body>
+	  <header th:replace="layouts/template :: header">
+	  </header>
+	  <div class="container mt-4 animate__animated  animate__backInLeft">
+		<h1 class="text-center my-4">Mantenimiento de Usuarios</h1>
+		<a th:href="@{/new_user}" class="btn btn-dark btn-sm my-2"><i class="fas fa-user fa-fw"></i> Nuevo Usuario</a>
+		<table class="table">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>USUARIO</td>
+					<td>PASSWORD</td>
+				</tr>
+			</thead>
+		<tbody>
+			<tr th:each="user:${usuarios}">
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.user}"></td>
+				<td th:text="${user.password}"></td>
+				<td>
+					<a th:href="@{/user/}+${user.id}" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>								
+					<a th:href="@{/deleteuser/}+${user.id}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>		
+				</td>				
+			</tr>		
+		</tbody>
+		</table>
+	</div>
+	    <footer th:replace="layouts/template :: footer"></footer>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head th:fragment="head">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EV1 - SpringBoot</title>
+    <link rel="favi" href="/logo.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/minty/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/b5b7f00aae.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header th:fragment="header">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" th:href="@{/}">Mantenimiento de Tablas</a>
+        <button
+          class="navbar-toggler d-lg-none"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapsibleNavId"
+          aria-controls="collapsibleNavId"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" th:href="@{/menu}">Menu Principal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/clients}">Clientes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/deposits}">Depositos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/users}">Retiros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/users}">Usuarios</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/buscarRetiros}"
+                >Buscar Retiros Por Cliente</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/crearRetiro}"
+                >Registrar un nuevo Retiro</a
+              >
+            </li>
+
+            <li class="nav-item d-flex align-items-center">
+              <form
+                th:action="@{/logout}"
+                method="post"
+                sec:authorize="isAuthenticated()"
+              >
+                <button type="submit" class="btn btn-sm btn-primary">
+                  Desloguear
+                </button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <footer th:fragment="footer">
+      <div class="d-flex justify-content-center">
+        <span>@maximopeoficiales 2020</span>
+      </div>
+    </footer>
+  </body>
+</html>
