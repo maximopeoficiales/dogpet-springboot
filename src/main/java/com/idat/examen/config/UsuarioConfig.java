@@ -2,7 +2,7 @@ package com.idat.examen.config;
 
 import java.util.ArrayList;
 
-import com.idat.examen.interfaces.IUsuario;
+import com.idat.examen.crud.IUsuarioCR;
 import com.idat.examen.models.Client;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service("userDetailsService")
 public class UsuarioConfig implements UserDetailsService {
      @Autowired
-     private IUsuario usuarioDao;
+     private IUsuarioCR usuarioDao;
 
      @Override
      @Transactional(readOnly = true)

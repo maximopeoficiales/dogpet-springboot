@@ -1,20 +1,20 @@
-package com.idat.examen.dao;
+package com.idat.examen.services;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.idat.examen.interfaces.IUsuario;
+import com.idat.examen.crud.IUsuarioCR;
 import com.idat.examen.models.Client;
-import com.idat.examen.services.IUsuarioService;
+import com.idat.examen.repository.IUsuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuariosImpl implements IUsuarioService {
+public class UserService implements IUsuarioRepository {
 
      @Autowired
-     IUsuario dao;
+     IUsuarioCR dao;
 
      @Override
      public List<Client> findAll() {

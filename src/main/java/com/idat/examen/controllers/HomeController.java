@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.idat.examen.models.Client;
-import com.idat.examen.services.IUsuarioService;
+import com.idat.examen.repository.IUsuarioRepository;
 import com.idat.examen.util.EncriptarPassword;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +14,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping
 public class HomeController {
 
      @Autowired
-     private IUsuarioService usuarioDao;
+     private IUsuarioRepository usuarioDao;
 
      @GetMapping("/menu")
      public String menu() {
@@ -45,7 +44,7 @@ public class HomeController {
 
      @PostMapping("/new_user")
      public String saveUser(Client c) {
-          c.setPassword(EncriptarPassword.encriptarPassword(c.getPassword());
+          c.setPassword(EncriptarPassword.encriptarPassword(c.getPassword()));
           usuarioDao.save(c);
           return "redirect:/users";
      }

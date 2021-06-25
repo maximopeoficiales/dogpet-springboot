@@ -28,6 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
      @Override
      protected void configure(HttpSecurity http) throws Exception {
-          http.authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll();
+          // habilita el acceso en la url assest/** y se asigna la pagina login y tambien
+          http.csrf().disable().authorizeRequests().antMatchers("/assets/**").permitAll().anyRequest().authenticated()
+                    .and().formLogin().loginPage("/login").permitAll();
      }
 }
