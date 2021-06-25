@@ -34,7 +34,7 @@ public class UsuarioConfig implements UserDetailsService {
           // se agregan los tipos de Roles
           roles.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
           // instancia User de userdetails
-          return new User(usuario.getUser(), this.encriptarPassword(usuario.getPassword()), roles);
+          return new User(usuario.getUser(), usuario.getPassword(), roles);
      }
 
      public String encriptarPassword(String password) {
