@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.idat.examen.models.Client;
 import com.idat.examen.repository.IUsuarioRepository;
+import com.idat.examen.services.UserService;
 import com.idat.examen.util.EncriptarPassword;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
      @Autowired
-     private IUsuarioRepository usuarioDao;
+     private UserService usuarioDao;
+
+     // Login form with error
+     @RequestMapping("/login-error.html")
+     public String loginError(Model model) {
+          model.addAttribute("loginError", true);
+          return "login";
+     }
 
      @GetMapping("/menu")
      public String menu() {

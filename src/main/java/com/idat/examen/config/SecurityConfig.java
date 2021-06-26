@@ -30,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      protected void configure(HttpSecurity http) throws Exception {
           // habilita el acceso en la url assest/** y se asigna la pagina login y tambien
           http.csrf().disable().authorizeRequests().antMatchers("/assets/**").permitAll().anyRequest().authenticated()
-                    .and().formLogin().loginPage("/login").permitAll();
+                    .and().formLogin().loginPage("/login").failureUrl("/login-error.html")
+                    .permitAll();
      }
 }

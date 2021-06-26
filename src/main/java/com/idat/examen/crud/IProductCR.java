@@ -14,6 +14,6 @@ public interface IProductCR extends CrudRepository<Product, Integer> {
 
      Optional<List<Product>> findByIdVendor(Integer idVendor);
 
-     Optional<List<Product>> findByNameLike(String name);
+     List<Product> findByNameContaining(String name);
 
 }

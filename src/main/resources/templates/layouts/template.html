@@ -8,10 +8,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EV1 - SpringBoot</title>
-    <link rel="favi" href="/logo.png" type="image/x-icon" />
+    <link rel="shortcut icon" th:href="@{assets/img/dogpet.png}" type="image/x-icon" />
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
     <link
       rel="stylesheet"
-      href="https://bootswatch.com/4/minty/bootstrap.min.css"
+      href="https://bootswatch.com/5/quartz/bootstrap.min.css"
     />
     <link
       rel="stylesheet"
@@ -25,9 +26,25 @@
   <body>
     <header th:fragment="header">
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" th:href="@{/}">
-          <img th:src="@{assets/img/dogpet.png}" width="40" height="40" class="d-inline-block align-top" alt="" style="border-radius: 100px;">
-          Dog Pet</a>
+        <a
+          class="
+            navbar-brand
+            d-flex
+            justify-content-lg-center
+            align-items-center
+          "
+          th:href="@{/}"
+        >
+          <img
+            th:src="@{assets/img/dogpet.png}"
+            width="40"
+            height="40"
+            class="d-inline-block align-top mx-2"
+            alt=""
+            style="border-radius: 100px"
+          />
+          Dog Pet</a
+        >
         <button
           class="navbar-toggler d-lg-none"
           type="button"
@@ -46,7 +63,9 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/productos}">Catalogo de Productos</a>
+              <a class="nav-link" th:href="@{/catalago-de-productos}"
+                >Catalogo de Productos</a
+              >
             </li>
 
             <li class="nav-item d-flex align-items-center">
@@ -56,7 +75,8 @@
                 sec:authorize="isAuthenticated()"
               >
                 <button type="submit" class="btn btn-sm btn-primary">
-                  <i class="fa fa-sign-out mx-1" aria-hidden="true"></i>Desloguear
+                  <i class="fa fa-sign-out mx-1" aria-hidden="true"></i
+                  >Desloguear
                 </button>
               </form>
             </li>
@@ -69,6 +89,22 @@
       <div class="d-flex justify-content-center">
         <!-- <span>@maximopeoficiales 2020</span> -->
       </div>
-    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </footer>
+
   </body>
 </html>

@@ -16,7 +16,7 @@ public class ProductService implements IProductRepository {
     IProductCR dao;
 
     @Override
-    public List<Product> getAll() {
+    public List<Product> findAll() {
         return (List<Product>) dao.findAll();
     }
 
@@ -46,8 +46,8 @@ public class ProductService implements IProductRepository {
     }
 
     @Override
-    public Optional<List<Product>> findByNameLike(String name) {
-        return dao.findByNameLike(name);
+    public List<Product> findByNameLike(String name) {
+        return dao.findByNameContaining(name);
     }
 
 }

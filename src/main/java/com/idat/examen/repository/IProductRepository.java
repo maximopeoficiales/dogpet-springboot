@@ -6,7 +6,7 @@ import java.util.Optional;
 import com.idat.examen.models.Product;
 
 public interface IProductRepository {
-    List<Product> getAll();
+    List<Product> findAll();
 
     Optional<Product> getProduct(int idProduct);
 
@@ -18,6 +18,6 @@ public interface IProductRepository {
 
     Optional<List<Product>> findByIdVendor(Integer idVendor);
 
-    Optional<List<Product>> findByNameLike(String name);
+    List<Product> findByNameLike(String name);
 
 }
