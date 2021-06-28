@@ -20,7 +20,7 @@ public class ProductController {
      @Autowired
      private ProductService productDao;
 
-     @GetMapping("/catalago-de-productos")
+     @GetMapping("/catalogo-de-productos")
      public String index(@RequestParam(value = "query", required = false) String query, Model model) {
 
           if (query == null) {
