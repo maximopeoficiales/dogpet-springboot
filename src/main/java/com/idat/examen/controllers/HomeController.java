@@ -23,7 +23,8 @@ public class HomeController {
      @Autowired
      private UserService usuarioDao;
 
-     // Login form with error
+     // Retorna una pagina templates/login 
+     // con el atributo loginError 
      @RequestMapping("/login-error.html")
      public String loginError(Model model) {
           model.addAttribute("loginError", true);

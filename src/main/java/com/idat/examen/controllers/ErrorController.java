@@ -10,9 +10,8 @@ import org.springframework.ui.Model;
 
 @ControllerAdvice
 public class ErrorController {
-    // private static Logger logger =
-    // LoggerFactory.getLogger(ErrorController.class);
-
+    // filtro de excepcion not found 404
+    // retorna una pagina templates/error
     @ExceptionHandler(Throwable.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public String exception(final Throwable throwable, final Model model) {
@@ -23,6 +22,8 @@ public class ErrorController {
         return "error";
     }
 
+    // filtro de excepcion INTERNAL_SERVER_ERROR 500
+    // retorna una pagina templates/error
     // @ExceptionHandler(Throwable.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String exceptionError(final Throwable throwable, final Model model) {
