@@ -28,9 +28,11 @@ public class ProductController {
           if (query == null) {
                List<Product> products = productDao.findAll();
                model.addAttribute("productos", products);
+               model.addAttribute("countProducts", products.size());
                return "producto/index";
           } else {
                List<Product> products = productDao.findByNameLike(query);
+               model.addAttribute("countProducts", products.size());
                model.addAttribute("productos", products);
                return "producto/index";
           }
