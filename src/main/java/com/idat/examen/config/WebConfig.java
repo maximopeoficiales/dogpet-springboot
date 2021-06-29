@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+     // sera un clase de configuracion y se le indica que la pagina de login es templates/login.html
      @Override
      public void addViewControllers(ViewControllerRegistry reg) {
           // en este controlador se agregar enpoints que no pasan por un

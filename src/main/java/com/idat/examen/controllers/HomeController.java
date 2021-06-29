@@ -24,13 +24,15 @@ public class HomeController {
      private UserService usuarioDao;
 
      // Retorna una pagina templates/login 
-     // con el atributo loginError 
+     // esta ruta se ejecutara cuando haya un error en el login 
+     // se envia una variable indicando que hay error 
      @RequestMapping("/login-error.html")
      public String loginError(Model model) {
           model.addAttribute("loginError", true);
           return "login";
      }
 
+// este es el index
      @GetMapping("/menu")
      public String menu() {
           return "index";

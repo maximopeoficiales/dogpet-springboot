@@ -6,5 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 // import org.springframework.data.repository.CrudRepository;
 
 public interface IUsuarioCR extends JpaRepository<Client, Integer> {
+     // buscara por usuario
      Client findByUser(String user);
 }

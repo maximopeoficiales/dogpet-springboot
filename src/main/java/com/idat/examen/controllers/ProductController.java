@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping
 public class ProductController {
-
+     // se instancia el productoDao para tener acceso a la BD
      @Autowired
      private ProductService productDao;
 
+     // la ruta de catalogo de productos es opcional si existe se busca por una query
+     // si no envia query retorna todos los productos
      @GetMapping("/catalogo-de-productos")
      public String index(@RequestParam(value = "query", required = false) String query, Model model) {
 
