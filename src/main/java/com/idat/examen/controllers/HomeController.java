@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import com.idat.examen.models.Client;
-import com.idat.examen.repository.IUsuarioRepository;
 import com.idat.examen.services.UserService;
 import com.idat.examen.util.EncriptarPassword;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,16 +24,23 @@ public class HomeController {
      @Autowired
      private UserService usuarioDao;
 
-     // Retorna una pagina templates/login 
-     // esta ruta se ejecutara cuando haya un error en el login 
-     // se envia una variable indicando que hay error 
+     
+
+     // Retorna una pagina templates/login
+     // esta ruta se ejecutara cuando haya un error en el login
+     // se envia una variable indicando que hay error
      @RequestMapping("/login-error.html")
-     public String loginError(Model model) {
+     public String loginError(Model model, Authentication authentication) {
+          UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+          // System.out.println("User has authorities: " + userDetails.getAuthorities());
+          if (userDetails != null) {
+               return "redirect:/catalogo-de-productos";
+          }
           model.addAttribute("loginError", true);
           return "login";
      }
 
-// este es el index
+     // este es el index
      @GetMapping("/menu")
      public String menu() {
           return "index";

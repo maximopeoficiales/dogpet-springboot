@@ -7,7 +7,22 @@
 	<body>
 	  <header th:replace="layouts/template :: header">
 	  </header>
+
 	  <div class="container mt-4 animate__animated  animate__backInLeft">
+        <!-- <div sec:authorize="hasRole('USER')">Soy un cliente.</div>
+        <div sec:authorize="hasRole('ADMIN')">Soy un admin.</div>
+        <div sec:authorize="isAuthenticated()">
+            Es visible solo para autenticados.
+        </div>
+
+        Authenticated username:
+        <div sec:authentication="name"></div>
+        
+		Authenticated user roles:
+        <div sec:authentication="principal.authorities"></div> -->
+		<!-- <div th:replace="layouts/template :: saludo"> -->
+		<!-- </div> -->
+
 		<h1 class="text-center my-4">Catalogo de Productos</h1>
 		<div class="row ">
 			<div class="col-md-10">

@@ -5,7 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class EncriptarPassword {
      public static void main(String[] args) {
           // esto es un generador de contraseñas encriptadas
-          var password = "admin";
+          var password = "jean";
           System.out.println("password: " + password);
           System.out.println("password: " + encriptarPassword(password));
      }

@@ -23,22 +23,23 @@ public class UsuarioConfig implements UserDetailsService {
      @Autowired
      private IUsuarioCR usuarioDao;
 
-     // se le indica que se sobreescribira el metodo loadUserByUsername y que su transaccion es solo de lectura
+     // se le indica que se sobreescribira el metodo loadUserByUsername y que su
+     // transaccion es solo de lectura
 
-     // este metodo se ejecuta cuando un usuario presiona el boton submit en el login 
+     // este metodo se ejecuta cuando un usuario presiona el boton submit en el login
      @Override
      @Transactional(readOnly = true)
      public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
           // busca usuario que trata de iniciar sesion
           Client usuario = usuarioDao.findByUser(username);
-          
+
           if (usuario == null) {
                throw new UsernameNotFoundException(username);
           }
           /* creo array de roles */
           var roles = new ArrayList<GrantedAuthority>();
           // se agregan los tipos de Roles
-          roles.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+          roles.add(new SimpleGrantedAuthority(usuario.getRol() == 1 ? "ROLE_ADMIN" : "ROLE_USER"));
           // instancia User de userdetails
           return new User(usuario.getUser(), usuario.getPassword(), roles);
      }

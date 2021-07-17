@@ -19,4 +19,5 @@ public class Client {
      private int id;
      private String user;
      private String password;
+     private int rol;
 }

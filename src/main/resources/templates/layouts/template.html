@@ -8,7 +8,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EV1 - SpringBoot</title>
-    <link rel="shortcut icon" th:href="@{assets/img/dogpet.png}" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      th:href="@{assets/img/dogpet.png}"
+      type="image/x-icon"
+    />
     <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
     <link
       rel="stylesheet"
@@ -36,7 +40,7 @@
           th:href="@{/}"
         >
           <img
-            th:src="@{assets/img/dogpet.png}"
+            th:src="@{/assets/img/dogpet.png}"
             width="40"
             height="40"
             class="d-inline-block align-top mx-2"
@@ -58,6 +62,14 @@
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <div sec:authorize="isAuthenticated()" class="nav-item">
+              <span class="nav-link">
+                <span class="bg-primary p-1" style="border-radius: 100px"
+                  >Hola <b sec:authentication="name"></b
+                ></span>
+              </span>
+            </div>
+
             <li class="nav-item active">
               <a class="nav-link" th:href="@{/menu}">Menu Principal</a>
             </li>
@@ -65,6 +77,14 @@
             <li class="nav-item">
               <a class="nav-link" th:href="@{/catalogo-de-productos}"
                 >Catalogo de Productos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                sec:authorize="hasRole('ADMIN')"
+                th:href="@{/admin/productos}"
+                >Mantenimiento de Productos</a
               >
             </li>
 
@@ -89,22 +109,21 @@
       <div class="d-flex justify-content-center">
         <!-- <span>@maximopeoficiales 2020</span> -->
       </div>
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-  </footer>
-
+      <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+      ></script>
+    </footer>
   </body>
 </html>
