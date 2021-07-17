@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<head th:replace="layouts/template :: head">
+
+	<body>
+	  <header th:replace="layouts/template :: header">
+	  </header>
+
+	  <div class="container  animate__animated  animate__backInLeft">
+			<a th:href="@{/admin/productos}" class="btn btn-dark btn-sm my-2"><i class="fas fa-user fa-fw"></i> Volver a la Lista</a>
+                <div class="row  justify-content-center">
+                        <div class="col-md-6 animate__animated animate__wobble card">
+                            <div class="card-body">
+                                <h5 class="card-title text-center" th:if="${edit != true}">Crear Producto</h5>
+
+                                <h5 class="card-title text-center" th:if="${edit}">Editar Producto</h5>
+                                <form th:action="@{/admin/producto/crear}" th:object=${producto} method="POST">
+
+                                            <!-- <label>ID</label> -->
+                                            <input th:field="*{idProduct}" type="hidden" class="form-control" readonly="readonly"> 
+                                            <div class="form-group">
+                                                <label>Nombre: </label> 
+                                                <input	th:field="*{name}" type="text" class="form-control"
+                                                required> 
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label>SKU: </label> 
+                                                <input	th:field="*{sku}" type="number" min="1" class="form-control"
+                                                required
+                                                > 
+                                            </div>
+                                            <div class="form-group">
+                                                <label>URL de Imagen: </label> 
+                                                <input	th:field="*{thumbnailUrl}" type="text" required class="form-control"> 
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Descripcion: </label> 
+                                                <input	th:field="*{description}" type="text" required class="form-control"> 
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Stock: </label> 
+                                                <input	th:field="*{stock}" type="number" min="1" class="form-control" step="0.01"
+                                                required
+                                                > 
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Precio: </label> 
+                                                <input	th:field="*{price}" type="number" min="1" class="form-control" step="0.01"
+                                                required
+                                                > 
+                                            </div>
+
+                                            
+
+                                            <div class="form-group">
+                                                <label>Precio de Venta: </label> 
+                                                <input	th:field="*{salePrice}" type="number" min="1" class="form-control" step="0.01"
+                                                required
+                                                > 
+                                            </div>
+
+                                            <div class="form-group">
+                                              <label for="">Selecciona un Proveedor</label>
+                                              <select th:field="*{idVendor}" class="form-control">
+                                                <option th:each="vendor : ${vendors}"
+                                                    th:value="${vendor.idVendor}"
+                                                    th:text="${vendor.company}">
+                                                        
+                                                </option>
+                                            </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="">Selecciona una Categoria</label>
+                                                <select th:field="*{idCategory}" class="form-control">
+                                                  <option th:each="category : ${categorys}"
+                                                      th:value="${category.idCategory}"
+                                                      th:text="${category.name}">
+                                                  </option>
+                                              </select>
+                                              </div>
+
+                                            
+                                            <button  type="submit" class="mt-3 btn btn-block btn-success btn-block" style="width: 100%;">
+                                                <i class="fas fa-save"></i> Guardar</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+		        </div>
+	
+	    <footer th:replace="layouts/template :: footer"></footer>
+</body>
+
+</html>

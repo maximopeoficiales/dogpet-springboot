@@ -11,7 +11,7 @@
 	  <div class="container mt-4 animate__animated  animate__backInLeft">
 		  <h1 class="text-center my-4">Mantenimiento de Productos</h1>
 			
-			<a th:href="@{/admin/crear-producto}" class="btn btn-dark btn-sm my-2"><i class="fas fa-user fa-fw"></i> Crear Producto</a>
+			<a th:href="@{/admin/producto/crear}" class="btn btn-dark btn-sm my-2"><i class="fas fa-user fa-fw"></i> Crear Producto</a>
 			<div class="col-md-12 my-4">
 				<form th:action="@{/admin/productos}" method="GET">
 					<div class="form-group">
@@ -51,7 +51,7 @@
 						<td th:text="${producto.idProduct}"></td>
 						<td >
 							<div class="d-flex justify-content-between align-items-center">
-								<img  th:src="${producto.thumbnailUrl}" style="width: 80px; height: 80px; border-radius: 50%;">
+								<img  th:src="${producto.thumbnailUrl}" style="width: 80px; height: 80px; border-radius: 50%; border: 1px white solid;">
 								<div class="text-center">
 									<b th:text="${producto.name}"></b>	
 								</div>
@@ -64,9 +64,9 @@
 						<td th:text="${producto.stock}"></td>
 						<td th:text="${producto.price}"></td>
 						<td th:text="${producto.salePrice}"></td>
-						<td>
-							 <a th:href="@{/admin/productos/}+${producto.idProduct}" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>								
-							<a th:href="@{/admin/productos/eliminar/}+${producto.idProduct}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>	
+						<td class="d-flex justify-content-center align-items-center">
+							 <a th:href="@{/admin/producto/editar/}+${producto.idProduct}" class="btn btn-sm btn-success mx-1"><i class="fas fa-edit"></i></a>								
+							<a th:href="@{/admin/producto/eliminar/}+${producto.idProduct}" class="btn btn-sm btn-danger mx-1"><i class="fas fa-trash"></i></a>	
 						</td>				
 					</tr>		
 				</tbody>
