@@ -12,7 +12,25 @@
 		  <h1 class="text-center my-4">Mantenimiento de Productos</h1>
 			
 			<a th:href="@{/admin/crear-producto}" class="btn btn-dark btn-sm my-2"><i class="fas fa-user fa-fw"></i> Crear Producto</a>
-			<div class="table-responsive">
+			<div class="col-md-12 my-4">
+				<form th:action="@{/admin/productos}" method="GET">
+					<div class="form-group">
+					 <div class="input-group">
+						 <!-- <label for=""</label> -->
+							 <input type="text" name="query" id="" class="form-control" placeholder="Ingrese una palabra Clave" aria-describedby="helpId">
+						 <div class="input-group-append">
+							 <button class="btn btn-secondary" type="submit">Buscar</button>
+							</div>
+					 </div>
+						 
+				 </div>
+				 
+				</form>
+			</div>
+
+			<h5 class="text-center">Hay <span th:text="${countProducts}"> </span> productos</h5>
+
+			<div th:if="${countProducts != 0 }" class="table-responsive">
 				<table class="table  table-striped bg-dark table-bordered ">
 					<thead>
 						<tr>
@@ -55,6 +73,9 @@
 				</table>
 			</div>
 			
+			<div th:if="${countProducts == 0 }">
+				<h3 class="text-center my-4">No hay productos que mostrar</h3>
+			</div>
 		</div>
 	
 	    <footer th:replace="layouts/template :: footer"></footer>
